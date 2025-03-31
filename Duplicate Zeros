@@ -1,0 +1,24 @@
+class Solution {
+public:
+    void duplicateZeros(vector<int>& arr) 
+    {
+        int s=arr.size();
+        vector<int>temp;
+        for(int i:arr)
+        {
+            if(i==0)
+            {
+                temp.push_back(i);
+                temp.push_back(0);
+            }
+            else
+            {
+                temp.push_back(i);
+            }
+            
+        }
+        arr=temp;
+        arr.resize(s);
+        
+    }
+};
