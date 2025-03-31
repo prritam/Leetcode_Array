@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) 
+    {
+        for(auto i:arr)
+        {
+             auto num=find(arr.begin(),arr.end(),i*2);
+             if(num!=arr.end()&&num!=arr.begin()+1){
+                return true;
+             }
+            
+            
+        }
+        return false;
+    }
+};
