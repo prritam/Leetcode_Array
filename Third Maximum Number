@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+        
+        
+        sort(nums.begin(),nums.end());
+        auto q=unique(nums.begin(),nums.end());
+        nums.erase(q,nums.end());
+        int n=nums.size();
+        
+        int i=0;
+      
+            if(n<3)
+            {
+                return nums[n-1];
+            }
+            return nums[n-3];
+        
+    }
+};
