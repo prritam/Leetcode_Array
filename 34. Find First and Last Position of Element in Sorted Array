@@ -1,0 +1,37 @@
+class Solution {
+public:
+    int findRight(vector<int> &nums,int s,int e,int target){
+        int index=-1;
+         while (s <= e) {
+            int m = s + (e - s) / 2;
+            if (nums[m] > target) {
+                e = m - 1;
+            } else {
+                if (nums[m] == target) index = m;
+                s = m + 1;
+            }
+        }
+        return index;
+    }
+    int findLeft(vector<int> &nums,int s,int e,int target){
+        int index=-1;
+        while (s <= e) {
+            int m = s + (e - s) / 2;
+            if (nums[m] < target) {
+                s = m + 1;
+            } else {
+                if (nums[m] == target) index = m;
+                e = m - 1;
+            }
+        }
+        return index;
+    }
+    vector<int> searchRange(vector<int>& nums, int target) {
+        vector<int>v;
+        int n=nums.size();
+        v.push_back(findRight(nums,0,n-1,target));
+        v.push_back(findLeft(nums,0,n-1,target));
+        sort(v.begin(),v.end());
+        return v;
+    }
+};
